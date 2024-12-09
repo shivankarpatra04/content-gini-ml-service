@@ -36,6 +36,10 @@ class GenerateBlogRequest(BaseModel):
     keywords: Optional[List[str]] = []
     tone: Optional[str] = "professional"
 
+@app.get("/")
+async def root():
+    return {"message": "ML Service is running"}
+
 @app.post("/api/analyze")
 async def analyze_content(request: AnalyzeRequest):
     try:
